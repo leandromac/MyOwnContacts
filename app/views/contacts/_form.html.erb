@@ -1,0 +1,69 @@
+<%= form_for(contact) do |f| %>
+    <h1>Formulário de Contato 
+        <span>Preencha os campos abaixo:</span>
+    </h1>
+
+  <div class="field">
+    <%= f.text_field :name, placeholder: "Nome completo..." %>
+  </div>
+
+  <div class="field">
+    <%= f.email_field :email, placeholder: "Email válido..." %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'Tipo de contato' %>
+    <%= f.collection_select(:kind_id, @kind_options_for_select, :id, :description) %>
+  </div>
+
+<!-- Incluindo formulário da view Address -->
+  <%= f.fields_for :address do |address_fields| %>
+    <div class="field">
+      <%= address_fields.label :street %>
+      <%= address_fields.text_field :street %>
+    </div>
+    <div class="field">
+      <%= address_fields.label :city %>
+      <%= address_fields.text_field :city %>
+    </div>
+    <div class="field">  
+      <%= address_fields.label :state %>
+      <%= address_fields.select :state, options_for_states(@contact.address.state) %>
+    </div>
+  <% end %>
+
+  <!-- Incluindo formulário da view Phone -->
+  <div id="phones">
+    <%= f.fields_for :phones do |phones_fields| %>
+      <%= render partial: "phone_fields", locals: { f: phones_fields } %>
+    <% end %>
+
+    <div class="fields">
+      <%= link_to_add_association('[+ Adicionar Telefone]', f, :phones) %>
+    </div>
+  </div>
+<br><br>
+
+  <div class="field">
+    <%= f.label 'Observação' %>
+    <%= f.text_area :rmk %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Salvar", class: "button" %>
+  <%= link_to 'Voltar', contacts_path, class: "button" %>
+  </div>
+<% end %>
+
+
+<% if contact.errors.any? %>
+  <div id="error_explanation">
+      <h2><%= "#{pluralize(@contact.errors.count, '')} #{t('messages.errors')}" %></h2>
+      
+      <ul>
+      <% contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>

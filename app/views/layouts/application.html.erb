@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Notebook</title>
+
+    <%= stylesheet_link_tag params[:controller] %>
+    <%= javascript_include_tag params[:controller] %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_include_tag 'alert', 'data-turbolinks-track': 'reload' %>
+
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+  <div class="basic-grey">
+    <%= yield %>
+  </div>
+  </body>
+</html>

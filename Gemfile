@@ -5,8 +5,19 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-# Bower-rails
-gem "bower-rails", "~> 0.11.0"
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap'
+  gem 'rails-assets-angular'
+  gem 'rails-assets-leaflet'
+  # Notifyjs
+  gem 'rails-assets-notifyjs', source: 'https://rails-assets.org'
+  # Bootstrap
+  gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
+
+end
+
+# Rails Assets
+gem 'bundler', '>= 1.8.4'
 # i18n for Kaminari
 gem 'kaminari-i18n'
 # ⚡ A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Ruby webapps https://github.com/amatsuda/kaminari/…

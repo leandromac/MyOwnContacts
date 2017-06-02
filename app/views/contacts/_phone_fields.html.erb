@@ -2,6 +2,6 @@
       <div class="field">
         <%= f.label :phone %><br>
         <%= f.text_field :phone, class: "phone-field" %>
-        <%= link_to_remove_association('Remover',f) %>
+        <%= link_to_remove_association("<span class='glyphicon glyphicon-trash text-danger' aria-hidden='true'></span>".html_safe,f) %>
       </div>
     </div>

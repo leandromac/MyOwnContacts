@@ -39,7 +39,7 @@
     <% end %>
 
     <div class="fields">
-      <%= link_to_add_association('[+ Adicionar Telefone]', f, :phones) %>
+      <%= link_to_add_association("Adicionar Telefone", f, :phones) %>
     </div>
   </div>
 <br><br>
@@ -50,8 +50,8 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Salvar", class: "button" %>
-  <%= link_to 'Voltar', contacts_path, class: "button" %>
+    <%= f.submit "Salvar", class: "btn btn-success" %>
+  <%= link_to 'Voltar', contacts_path, class: "btn btn-default" %>
   </div>
 <% end %>
 

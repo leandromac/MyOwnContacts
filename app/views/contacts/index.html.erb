@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+
+<script>
+  $.notify("<%= notice %>", "success");
+</script>
 
 <h1><%= "#{t('messages.listing')} #{@contacts.model.model_name.human(count: @contacts.count)}" %></h1>
 <table>
@@ -6,7 +9,7 @@
     <tr>
       <th><%= @contacts.model.human_attribute_name("name") %></th>
       <th><%= @contacts.model.human_attribute_name("kind") %></th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -15,7 +18,6 @@
       <tr style="background: <%= cycle('#F7F7F7', '#DCDCDC') %>">
         <td><%= contact.name %></td>
         <td><%= contact.kind.description %></td>
-        <td><%= link_to t('buttons.show'), contact %></td>
         <td><%= link_to t('buttons.edit'), edit_contact_path(contact) %></td>
         <td><%= link_to t('buttons.destroy'), contact, method: :delete, data: { confirm: t('messages.confirm') } %></td>
       </tr>
@@ -29,4 +31,5 @@
 </div>
 <br>
 
-<%= link_to t('buttons.new'), new_contact_path %>
+<%= link_to t('buttons.home'), root_path, class: "btn btn-default" %>
+<%= link_to t('buttons.new'), new_contact_path, class: "btn btn-primary pull-right" %>

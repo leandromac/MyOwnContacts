@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
   before_action :set_options_for_select, only: [:new, :edit, :update, :create]
-
+  http_basic_authenticate_with name: "48903210", password: "lfm0607", only: :destroy
 
   # GET /contacts
   # GET /contacts.json
@@ -31,7 +31,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     respond_to do |format|
       if @contact.save
-        format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
+        format.html { redirect_to contacts_path, notice: I18n.t('messages.created') }
         format.json { render :show, status: :created, location: @contact }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class ContactsController < ApplicationController
   def update
     respond_to do |format|
       if @contact.update(contact_params)
-        format.html { redirect_to @contact, notice: 'Contact was successfully updated.' }
+        format.html { redirect_to @contact, notice: I18n.t('messages.updated') }
         format.json { render :show, status: :ok, location: @contact }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class ContactsController < ApplicationController
   def destroy
     @contact.destroy
     respond_to do |format|
-      format.html { redirect_to contacts_url, notice: 'Contact was successfully destroyed.' }
+      format.html { redirect_to contacts_url, notice: I18n.t('messages.destroyed') }
       format.json { head :no_content }
     end
   end

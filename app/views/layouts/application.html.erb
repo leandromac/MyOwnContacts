@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Notebook</title>
-
+    <title>contac.to</title>
+    <%= favicon_link_tag 'favicon.ico' %>
     <%= stylesheet_link_tag params[:controller] %>
     <%= javascript_include_tag params[:controller] %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -14,11 +14,17 @@
 
   <body>
   <br>
-  <p class="text-center">
-  <img src="http://icons.iconarchive.com/icons/iynque/ios7-style/1024/Contacts-icon.png" width="50">
+  <p class="text-center text-muted">
+  <%= link_to image_tag("contacts-logo.png", :alt => "contac.to", :width => "50"), root_path %>
+  <br>
+contac.to
   </p>
   <div class="basic-grey">
     <%= yield %>
   </div>
+  <br>
+  <footer class="text-center">
+  <%= link_to image_tag("github-logo.png", :alt => "Github", :width => "48"), "https://github.com/leandromac/notebook", target: "_blank" %>
+  </footer>
   </body>
 </html>

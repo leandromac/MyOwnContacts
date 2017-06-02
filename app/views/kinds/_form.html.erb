@@ -12,11 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, placeholder: 'Descrição...' %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Salvar', class: 'btn btn-primary pull-right' %>
   </div>
 <% end %>

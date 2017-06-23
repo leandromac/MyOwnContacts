@@ -18,6 +18,8 @@ source 'https://rails-assets.org' do
 end
 # FriendlyId is the “Swiss Army bulldozer” of slugging and permalink plugins for ActiveRecord.
 gem 'friendly_id'
+# Flexible authentication solution for Rails with Warden.
+gem 'devise'
 # Rails Assets
 gem 'bundler', '>= 1.8.4'
 # i18n for Kaminari

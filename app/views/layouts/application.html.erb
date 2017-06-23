@@ -24,6 +24,8 @@ contac.to
   </div>
   <br>
   <footer class="text-center">
+  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+
   <%= link_to image_tag("github-logo.png", :alt => "Github", :width => "48"), "https://github.com/leandromac/notebook", target: "_blank" %>
   </footer>
   </body>

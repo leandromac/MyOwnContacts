@@ -28,7 +28,7 @@ class KindsController < ApplicationController
 
     respond_to do |format|
       if @kind.save
-        format.html { redirect_to @kind, notice: 'Kind was successfully created.' }
+        format.html { redirect_to kinds_path, notice: 'Kind was successfully created.' }
         format.json { render :show, status: :created, location: @kind }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class KindsController < ApplicationController
   def update
     respond_to do |format|
       if @kind.update(kind_params)
-        format.html { redirect_to @kind, notice: 'Kind was successfully updated.' }
+        format.html { redirect_to kinds_path, notice: 'Kind was successfully updated.' }
         format.json { render :show, status: :ok, location: @kind }
       else
         format.html { render :edit }

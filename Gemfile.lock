@@ -58,6 +58,8 @@ GEM
     faker (1.7.3)
       i18n (~> 0.5)
     ffi (1.9.18)
+    friendly_id (5.2.1)
+      activerecord (>= 4.0.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     i18n (0.8.1)
@@ -202,6 +204,7 @@ DEPENDENCIES
   cocoon
   coffee-rails (~> 4.2)
   faker
+  friendly_id
   jbuilder (~> 2.5)
   jquery-rails
   kaminari
@@ -231,4 +234,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.15.0
+   1.15.1

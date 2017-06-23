@@ -16,7 +16,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
 
 end
-
+# FriendlyId is the “Swiss Army bulldozer” of slugging and permalink plugins for ActiveRecord.
+gem 'friendly_id'
 # Rails Assets
 gem 'bundler', '>= 1.8.4'
 # i18n for Kaminari

@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   # New routes
   get '/tipos' => 'kinds#index'
-  get '/contatos' => 'contacts#index'
   get '/enderecos' => 'addresses#index'
   get '/telefones' => 'phones#index'
 

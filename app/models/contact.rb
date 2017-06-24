@@ -8,6 +8,7 @@ class Contact < ApplicationRecord
   friendly_id :name, use: :slugged
 
   scope :to_the, ->(user) { where(user: user) }
+  scope :search, ->(q) { where("lower(name) LIKE ?", "%#{q.downcase}%") }
 
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :phones, reject_if: :all_blank, allow_destroy: true

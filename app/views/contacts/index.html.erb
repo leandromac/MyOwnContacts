@@ -2,27 +2,9 @@
   $.notify("<%= notice %>", "success");
 </script>
 
-<h1><%= "#{t('messages.listing')} #{@contacts.model.model_name.human(count: @contacts.count)}" %></h1>
-<table>
-  <thead>
-    <tr>
-      <th><%= @contacts.model.human_attribute_name("name") %></th>
-      <th><%= @contacts.model.human_attribute_name("kind") %></th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+<h1><%= "#{@contacts.model.model_name.human(count: @contacts.count)}" %></h1>
 
-  <tbody>
-    <% @contacts.each do |contact| %>
-      <tr style="background: <%= cycle('#F7F7F7', '#DCDCDC') %>">
-        <td><%= link_to contact.name, edit_contact_path(contact) %></td>
-        <td><%= contact.kind.description %></td>
-        <td><%= link_to t('buttons.edit'), edit_contact_path(contact) %></td>
-        <td><%= link_to t('buttons.destroy'), contact, method: :delete, data: { confirm: t('messages.confirm') } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render partial: "contacts/shared/contacts" %>
 
 <br>
 <div style="text-align: center">

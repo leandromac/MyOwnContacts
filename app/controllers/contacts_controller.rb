@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
   # GET /contacts.json
   def index
     @contacts = Contact.to_the(current_user)
-    @contacts = Contact.order(:name).page(params[:page]).per(15) #paginação
+    @contacts = Contact.order(:name).page(params[:page]).per(30) #paginação
   end
 
   # GET /contacts/1
@@ -46,7 +46,7 @@ class ContactsController < ApplicationController
   def update
     respond_to do |format|
       if @contact.update(contact_params)
-        format.html { redirect_to @contact, notice: I18n.t('messages.updated') }
+        format.html { redirect_to contacts_path, notice: I18n.t('messages.updated') }
         format.json { render :show, status: :ok, location: @contact }
       else
         format.html { render :edit }

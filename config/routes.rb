@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/enderecos' => 'addresses#index'
   get '/telefones' => 'phones#index'
 
-  root 'home#index'
+  root 'contacts#index'
 
   # resources cria as rotas para cada view automaticamente
   # index, edit, show, new

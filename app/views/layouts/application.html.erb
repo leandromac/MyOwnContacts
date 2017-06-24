@@ -19,22 +19,31 @@
   <br>
 contac.to
 <br>
+  <% if user_signed_in? %>
+  <%= current_user.email %>
   <%= link_to "Sair", destroy_user_session_path, method: :delete, class: 'btn btn-default btn-xs' %>
+  <% end %>
   </p>
   <div class="basic-grey">
-
-<ul class="nav nav-pills nav-justified">
-  <li role="presentation" class="<% if params[:controller] == 'kinds' %>active<% end %>">
-    <%= link_to "Tipos", kinds_path %>
-  </li>
-  <li role="presentation" class="<% if params[:controller] == 'contacts' %>active<% end %>">
-    <%= link_to "Contatos", contacts_path %>
-  </li>
-  <li role="presentation" class="<% if params[:controller] == 'devise/registrations' %>active<% end %>">
-    <%= link_to "Perfil", edit_user_registration_path %>
-  </li>
-</ul>
-<br>
+  <% if user_signed_in? %>
+    <ul class="nav nav-pills nav-justified">
+      <li role="presentation" class="<% if params[:controller] == 'kinds' %>active<% end %>">
+        <%= link_to kinds_path do %>
+          <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Tipos
+        <% end %>
+      </li>
+      <li role="presentation" class="<% if params[:controller] == 'contacts' %>active<% end %>">
+        <%= link_to contacts_path do %>
+          <span class="glyphicon glyphicon-book" aria-hidden="true"></span> Contatos
+        <% end %>
+      </li>
+      <li role="presentation" class="<% if params[:controller] == 'devise/registrations' %>active<% end %>">
+        <%= link_to edit_user_registration_path do %>
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Perfil
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
     <%= yield %>
   </div>
   <br>
